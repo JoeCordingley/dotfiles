@@ -32,8 +32,9 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jalvesaq/Nvim-R'
-
 Plugin 'tpope/vim-surround'
+Plugin 'ludovicchabant/vim-gutentags'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -98,5 +99,5 @@ nnoremap <C-H> <C-W><C-H>
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 set expandtab
-nnoremap <leader>t :!fast-tags -R .<CR>
+nnoremap <leader>t :silent !fast-tags -R .<CR>
 nnoremap <leader>s :CtrlPTag<CR>
