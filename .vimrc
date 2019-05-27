@@ -98,3 +98,5 @@ nnoremap <C-H> <C-W><C-H>
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 set expandtab
+nnoremap <leader>t :!fast-tags -R .<CR>
+nnoremap <leader>s :CtrlPTag<CR>
