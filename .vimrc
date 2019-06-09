@@ -101,3 +101,5 @@ nmap <C-g> <Plug>IMAP_JumpForward
 set expandtab
 nnoremap <leader>t :silent !fast-tags -R .<CR>
 nnoremap <leader>s :CtrlPTag<CR>
+nnoremap <leader>f :silent !hfmt -w<CR>
+
