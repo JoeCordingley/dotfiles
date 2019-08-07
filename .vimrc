@@ -34,6 +34,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'tpope/vim-surround'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'altercation/vim-colors-solarized'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
@@ -62,7 +63,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-execute pathogen#infect()
 
 syntax on
 
@@ -88,8 +88,8 @@ au BufNewFile,BufRead *.md setlocal ft=vimwiki
 au BufNewFile,BufRead *.markdown setlocal ft=vimwiki
 :tnoremap <Esc> <C-\><C-n>
 " folding
-autocmd Syntax scala setlocal foldmethod=syntax
-autocmd Syntax scala normal zR
+"autocmd Syntax scala setlocal foldmethod=syntax
+"autocmd Syntax scala normal zR
 set shiftwidth=2
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
