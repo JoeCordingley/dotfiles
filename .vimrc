@@ -35,6 +35,7 @@ Plugin 'jalvesaq/Nvim-R'
 Plugin 'tpope/vim-surround'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'b4b4r07/vim-sqlfmt'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
@@ -69,7 +70,7 @@ syntax on
 set number
 set relativenumber
 colorscheme solarized
-set background=dark
+set background=light
 let g:airline_powerline_fonts = 1
 set hidden
 
@@ -83,6 +84,8 @@ set wildmenu
 set wildignore+=*/target/*
 setl autoread
 noremap <F5> :Autoformat<CR>
+let g:formatdef_scalafmt = "'scalafmt --stdin 2>/dev/null'"
+let g:formatters_scala = ['scalafmt']
 set guioptions+=c
 au BufNewFile,BufRead *.md setlocal ft=vimwiki
 au BufNewFile,BufRead *.markdown setlocal ft=vimwiki
@@ -103,3 +106,6 @@ nnoremap <leader>t :silent !fast-tags -R .<CR>
 nnoremap <leader>s :CtrlPTag<CR>
 nnoremap <leader>f :silent !hfmt -w<CR>
 
+"put swap files in this dir
+set directory=.,~/tmp,/var/tmp,/tmp
+set statusline+=%{gutentags#statusline()}
