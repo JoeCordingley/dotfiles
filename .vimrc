@@ -36,6 +36,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'b4b4r07/vim-sqlfmt'
+Plugin 'rob-b/gutenhasktags'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
@@ -70,7 +71,7 @@ syntax on
 set number
 set relativenumber
 colorscheme solarized
-set background=light
+set background=dark
 let g:airline_powerline_fonts = 1
 set hidden
 
@@ -109,3 +110,8 @@ nnoremap <leader>f :silent !hfmt -w<CR>
 "put swap files in this dir
 set directory=.,~/tmp,/var/tmp,/tmp
 set statusline+=%{gutentags#statusline()}
+
+let g:gutentags_project_info = [ {'type': 'python', 'file': 'setup.py'},
+                               \ {'type': 'ruby', 'file': 'Gemfile'},
+                               \ {'type': 'haskell', 'file': 'Setup.hs'} ]
+let g:gutentags_ctags_executable_haskell = 'gutenhasktags'
