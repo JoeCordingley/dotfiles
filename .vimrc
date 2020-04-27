@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
@@ -29,6 +29,7 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'vimwiki/vimwiki'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jalvesaq/Nvim-R'
@@ -71,7 +72,7 @@ syntax on
 set number
 set relativenumber
 colorscheme solarized
-set background=dark
+set background=light
 let g:airline_powerline_fonts = 1
 set hidden
 
