@@ -38,6 +38,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'b4b4r07/vim-sqlfmt'
 Plugin 'rob-b/gutenhasktags'
+Plugin 'elmcast/elm-vim'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
