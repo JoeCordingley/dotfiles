@@ -38,7 +38,10 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'b4b4r07/vim-sqlfmt'
 Plugin 'rob-b/gutenhasktags'
-Plugin 'elmcast/elm-vim'
+Plugin 'andys8/vim-elm-syntax'
+Plugin 'dense-analysis/ale'
+Plugin 'purescript-contrib/purescript-vim'
+
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " "Plugin 'L9'
@@ -55,6 +58,14 @@ Plugin 'elmcast/elm-vim'
 
 " All of your "Plugins must be added before the following line
 call vundle#end()            " required
+
+call plug#begin()
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+call plug#end()
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -89,6 +100,8 @@ setl autoread
 noremap <F5> :Autoformat<CR>
 let g:formatdef_scalafmt = "'scalafmt --stdin 2>/dev/null'"
 let g:formatters_scala = ['scalafmt']
+let g:formatdef_haskellformatter = "'haskell-formattter'"
+let g:formatters_haskell = ['haskellformatter']
 set guioptions+=c
 au BufNewFile,BufRead *.md setlocal ft=vimwiki
 au BufNewFile,BufRead *.markdown setlocal ft=vimwiki
@@ -105,9 +118,6 @@ nnoremap <C-H> <C-W><C-H>
 imap <C-g> <Plug>IMAP_JumpForward
 nmap <C-g> <Plug>IMAP_JumpForward
 set expandtab
-nnoremap <leader>t :silent !fast-tags -R .<CR>
-nnoremap <leader>s :CtrlPTag<CR>
-nnoremap <leader>f :silent !hfmt -w<CR>
 
 "put swap files in this dir
 set directory=.,~/tmp,/var/tmp,/tmp
@@ -117,3 +127,30 @@ let g:gutentags_project_info = [ {'type': 'python', 'file': 'setup.py'},
                                \ {'type': 'ruby', 'file': 'Gemfile'},
                                \ {'type': 'haskell', 'file': 'Setup.hs'} ]
 let g:gutentags_ctags_executable_haskell = 'gutenhasktags'
+au BufRead,BufNewFile *.elm set filetype=elm
+
+let mapleader=','
+
+" Haskell
+nnoremap <leader>t :silent !fast-tags -R .<CR>
+nnoremap <leader>T :CtrlPTag<CR>
+nnoremap <leader>f :silent !hfmt -w<CR>
+
+" Keybindings
+nmap <leader>r <Plug>(coc-rename)
+nmap <silent> <leader>s <Plug>(coc-fix-current)
+nmap <silent> <leader>S <Plug>(coc-codeaction)
+nmap <silent> <leader>a <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>A <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>g :call CocAction('doHover')<CR>
+nmap <silent> <leader>u <Plug>(coc-references)
+nmap <silent> <leader>p :call CocActionAsync('format')<CR>
+
+let g:LanguageClient_serverCommands = {
+  \ 'elm': ['elm-language-server'],
+  \ }
+
+let g:LanguageClient_rootMarkers = {
+  \ 'elm': ['elm.json'],
+  \ }
