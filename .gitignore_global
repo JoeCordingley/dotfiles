@@ -9,3 +9,25 @@ tags
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
+
+#bloop
+.bloop/
+project/.bloop/
+
+#idea
+.idea/
+
+#don't know
+tags.lock
+tags.temp
+
+
+#metals
+.metals/
+project/metals.sbt
+
+#vscode
+.vscode/
+
+#git-merge
+*.orig

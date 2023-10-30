@@ -26,10 +26,14 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'jceb/vim-orgmode'
 Plugin 'vim-latex/vim-latex'
-Plugin 'jiangmiao/auto-pairs'
+"Plugin 'jiangmiao/auto-pairs'
+Plugin 'windwp/nvim-autopairs'
+"Plugin 'tmsvg/pear-tree'
+
+
+
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'vimwiki/vimwiki'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jalvesaq/Nvim-R'
@@ -41,6 +45,13 @@ Plugin 'rob-b/gutenhasktags'
 Plugin 'andys8/vim-elm-syntax'
 Plugin 'dense-analysis/ale'
 Plugin 'purescript-contrib/purescript-vim'
+"Plugin 'scalameta/nvim-metals'
+"Plugin 'nvim-lua/plenary.nvim' 
+"Plugin 'hrsh7th/nvim-cmp'
+"Plugin 'hrsh7th/cmp-nvim-lsp'
+"Plugin 'hrsh7th/cmp-vsnip'
+"Plugin 'hrsh7th/vim-vsnip'
+"Plugin 'mfussenegger/nvim-dap'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -58,6 +69,10 @@ Plugin 'purescript-contrib/purescript-vim'
 
 " All of your "Plugins must be added before the following line
 call vundle#end()            " required
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
 
 call plug#begin()
 Plug 'autozimu/LanguageClient-neovim', {
@@ -84,7 +99,7 @@ syntax on
 set number
 set relativenumber
 colorscheme solarized
-set background=light
+set background=dark
 let g:airline_powerline_fonts = 1
 set hidden
 
@@ -137,20 +152,15 @@ nnoremap <leader>T :CtrlPTag<CR>
 nnoremap <leader>f :silent !hfmt -w<CR>
 
 " Keybindings
-nmap <leader>r <Plug>(coc-rename)
-nmap <silent> <leader>s <Plug>(coc-fix-current)
-nmap <silent> <leader>S <Plug>(coc-codeaction)
-nmap <silent> <leader>a <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>A <Plug>(coc-diagnostic-next-error)
-nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>g :call CocAction('doHover')<CR>
-nmap <silent> <leader>u <Plug>(coc-references)
-nmap <silent> <leader>p :call CocActionAsync('format')<CR>
 
-let g:LanguageClient_serverCommands = {
-  \ 'elm': ['elm-language-server'],
-  \ }
+"let g:LanguageClient_serverCommands = {
+"  \ 'elm': ['elm-language-server'],
+"  \ }
+"
+"let g:LanguageClient_rootMarkers = {
+"  \ 'elm': ['elm.json'],
+"  \ }
 
-let g:LanguageClient_rootMarkers = {
-  \ 'elm': ['elm.json'],
-  \ }
+"lua require('init')
+
+set clipboard=unnamedplus
