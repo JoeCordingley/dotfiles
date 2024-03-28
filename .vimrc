@@ -30,8 +30,6 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'windwp/nvim-autopairs'
 "Plugin 'tmsvg/pear-tree'
 
-
-
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
@@ -39,7 +37,9 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'tpope/vim-surround'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'ishan9299/nvim-solarized-lua'
+
 Plugin 'b4b4r07/vim-sqlfmt'
 Plugin 'rob-b/gutenhasktags'
 Plugin 'andys8/vim-elm-syntax'
@@ -99,7 +99,6 @@ syntax on
 set number
 set relativenumber
 colorscheme solarized
-set background=dark
 let g:airline_powerline_fonts = 1
 set hidden
 
@@ -115,7 +114,7 @@ setl autoread
 noremap <F5> :Autoformat<CR>
 let g:formatdef_scalafmt = "'scalafmt --stdin 2>/dev/null'"
 let g:formatters_scala = ['scalafmt']
-let g:formatdef_haskellformatter = "'haskell-formattter'"
+let g:formatdef_haskellformatter = "'haskell-formatter'"
 let g:formatters_haskell = ['haskellformatter']
 set guioptions+=c
 au BufNewFile,BufRead *.md setlocal ft=vimwiki
